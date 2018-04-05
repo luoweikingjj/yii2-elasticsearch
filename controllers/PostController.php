@@ -12,10 +12,10 @@ class PostController extends Controller
         $keyword = 'php';
         $posts = PostSearch::find()
             ->query([
-            'multi_match' => [
-                'query' => $keyword,
-                'fields' => ['title', 'body'],
-            ]
+                'multi_match' => [
+                    'query' => $keyword,
+                    'fields' => ['title', 'body'],
+                ]
             ])->highlight([
                 'pre_tags' => ["<b>"],
                 'post_tags' => ["</b>"],
